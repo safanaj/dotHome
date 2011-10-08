@@ -1,0 +1,3 @@
+[submodule "dot emacs dir"]
+	path = .emacs.d
+	url = ./.emacs.d/.git/
