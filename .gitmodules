@@ -1,3 +1,6 @@
 [submodule "dot emacs dir"]
 	path = .emacs.d
-	url = ./.emacs.d/.git/
+	url = /mnt/book/Sources/dotEmacsStuff.git/
+[submodule "dot Srecode Stuff dir"]
+	path = .srecode
+	url = /mnt/book/Sources/dotSrecodeStuff.git/
