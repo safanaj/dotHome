@@ -1,6 +1,6 @@
 [submodule "dot_emacs_dir"]
 	path = .emacs.d
-	url = /mnt/book/Sources/dotEmacsStuff.git
+	url = git@github.com:safanaj/dotEmacsStuff.git
 [submodule "dot_srecode_dir"]
 	path = .srecode
-	url = /mnt/book/Sources/dotSrecodeStuff.git
+	url = git@github.com:safanaj/dotSrecodeStuff.git
