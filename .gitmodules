@@ -1,0 +1,6 @@
+[submodule "dot_emacs_dir"]
+	path = .emacs.d
+	url = /home/mbardelli/gitz/dotEmacsStuff.git
+[submodule "dot_srecode_dir"]
+	path = .srecode
+	url = /home/mbardelli/gitz/dotSrecodeStuff.git

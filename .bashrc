@@ -106,3 +106,6 @@ export GPG_TTY
 CVS_RSH=ssh
 export CVS_RSH
 
+# strange fix for locale
+[ -z $LC_ALL ] && export LC_ALL="$LANG"
+[ -z $LANGUAGE ] && export LANGUAGE="$LANG"

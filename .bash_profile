@@ -38,14 +38,14 @@ fi
 
 
 ### GNUstep Settings Up ...
-GNUSTEP_SH=`gnustep-config --variable=GNUSTEP_MAKEFILES`/GNUstep.sh
-[ -f ${GNUSTEP_SH} ] && source ${GNUSTEP_SH}
-GS_SETUP=~/GNUstep/.gs-setup
-[ -f ${GS_SETUP} ] && . ${GS_SETUP}
-# echo 'sourced .gs-setup '
-## Not in .GNUstep.conf because is not a standard variable. (gnustep-config ugly it)
-GNUSTEP_USER_MAKEFILES=`gnustep-config --variable=GNUSTEP_USER_LIBRARY`/Makefiles
-export GNUSTEP_USER_MAKEFILES
+if [ ! -z `which gnustep-config` ] ; then
+    GNUSTEP_SH=`gnustep-config --variable=GNUSTEP_MAKEFILES`/GNUstep.sh
+    [ -f ${GNUSTEP_SH} ] && source ${GNUSTEP_SH}
+    GS_SETUP=~/GNUstep/.gs-setup
+    [ -f ${GS_SETUP} ] && . ${GS_SETUP}
+    GNUSTEP_USER_MAKEFILES=`gnustep-config --variable=GNUSTEP_USER_LIBRARY`/Makefiles
+    export GNUSTEP_USER_MAKEFILES
+fi
 
 # set PATH so it includes user's private bin if it exists
 if [ -d ~/bin ] ; then

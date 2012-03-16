@@ -1,0 +1,21 @@
+[user]
+	name = Marco Bardelli
+	email = fanaj@jmini
+[diff "xrcs"]
+	command = diff -I\"\\$Id:\" -uwN
+[giggle]
+	main-window-maximized = false
+	main-window-geometry = 886x586+85+52
+	file-view-vpane-position = 329
+	main-window-view = FileView
+	history-view-vpane-position = 200
+	show-graph = false
+[color]
+	diff = auto
+[status]
+	showUntrackedFiles = no
+[alias]
+	co = checkout
+	ci = commit
+	ls = ls-files
+	last = cat-file commit HEAD
