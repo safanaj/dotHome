@@ -24,15 +24,15 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;; Load a clean cedet
 (defsubst load-cedet-newtrunk (&optional dir)
-(condition-case err
-     (if (file-directory-p dir)
-	 (load
-	  (expand-file-name
-	   "cedet-devel-load.el" dir))
-       (load
-	(expand-file-name
-	 "~/Progetti/cedet/newtrunk/cedet-devel-load.el")))
-  (error (message (cadr err))))
+  (condition-case err
+      (if (file-directory-p dir)
+	  (load
+	   (expand-file-name
+	    "cedet-devel-load.el" dir))
+	(load
+	 (expand-file-name
+	  "~/Progetti/cedet/newtrunk/cedet-devel-load.el")))
+    (error (message (cadr err)))))
 
 (defsubst load-cedet-trunk (&optional dir)
   (and (bound-and-true-p cedet-version)
@@ -54,7 +54,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;; Org , copied from doc.norang.org
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(add-to-list 'load-path (expand-file-name "~/git/org-mode/lisp"))
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/org-mode/lisp"))
 (add-to-list 'auto-mode-alist '("\\.\\(org\\|org_archive\\|txt\\)$" . org-mode))
 ;; flyspell mode for spell checking everywhere
 (add-hook 'org-mode-hook 'turn-on-flyspell 'append)
@@ -236,12 +236,12 @@
 	 (expand-file-name "my-elib.el" user-emacs-directory) t)
 (require 'my-bindkeys
 	 (expand-file-name "my-bindkeys.el" user-emacs-directory) t)
-(require 'mail-and-gnus
-	 (expand-file-name "mail-and-gnus.el" user-emacs-directory) t)
-
 ;; load several elisp by emacswiki
 (require 'my-elisp
 	 (expand-file-name "my-elisp.el" user-emacs-directory) t)
+
+(require 'my-mails
+	 (expand-file-name "my-mails.el" user-emacs-directory) t)
 
 
 ;; usual tuning, default are: max-specpdl-size    1000, max-lisp-eval-depth 500
@@ -253,13 +253,35 @@
 
 ;;;;;;;;;;;;;;;;;;;;;
 ;;;; Google Stuff
-(add-to-list 'load-path (expand-file-name "g-client" user-emacs-directory))
-(require 'g)
-(setq g-user-email "bardelli.marco@gmail.com")
-(setq g-html-handler 'browse-url-of-buffer)
-;(load-file (expand-file-name "g-stub.el" user-emacs-directory))
-(gcal-emacs-calendar-setup)
+;; (add-to-list 'load-path (expand-file-name "g-client" user-emacs-directory))
+;; (require 'g)
+;; (setq g-user-email "bardelli.marco@gmail.com")
+;; (setq g-html-handler 'browse-url-of-buffer)
+;; ;(load-file (expand-file-name "g-stub.el" user-emacs-directory))
+;; (gcal-emacs-calendar-setup)
 
+;;;;;;;;;;;;;;;;;;;;
+;;;; JS coding
+(and
+ (require 'js2-mode nil t)
+ (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode)))
+
+(when (require 'js-comint nil t)
+  ;(setq inferior-js-program-command "/usr/bin/gjs")
+  (setq inferior-js-program-command "/usr/bin/smjs")
+  (add-hook 'js2-mode-hook '(lambda () 
+			      (local-set-key "\C-x\C-e" 'js-send-last-sexp)
+			      (local-set-key "\C-\M-x" 'js-send-last-sexp-and-go)
+			      (local-set-key "\C-cb" 'js-send-buffer)
+			      (local-set-key "\C-c\C-b" 'js-send-buffer-and-go)
+			      (local-set-key "\C-cl" 'js-load-file-and-go)
+			      ))
+  )
+
+
+;;;;;;;;;;;;;;; Wiki and Web editing
+(when (and (daemonp) (require 'edit-server (expand-file-name "emacs_chrome/servers/edit-server.el" user-emacs-directory) t))
+  (edit-server-start))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;; Maunal Customization
@@ -273,18 +295,30 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
+  ;; custom-set-variables was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+ '(erc-autojoin-channels-alist (quote (("rupe.devsite" "#guerrazzi" "#sstefano" "#test" "#fondazza" "#ottimastanza"))))
+ '(erc-autojoin-domain-only t)
+ '(erc-modules (quote (autoaway autojoin button capab-identify completion dcc fill irccontrols keep-place list log match menu move-to-prompt netsplit networks noncommands notify page readonly ring services smiley sound stamp spelling track xdcc)))
+ '(erc-nick "mbardelli")
+ '(erc-port 6667)
+ '(erc-server "rupe.devsite.servabit.it")
+ '(erc-user-full-name (quote user-full-name))
+ '(flyspell-default-dictionary "italiano")
+ '(ibuffer-saved-filter-groups (quote (("mine-buffers-groups" ("Help" (mode . help-mode)) ("GNUS" (or (filename . ".newsrc-dribble") (saved . "gnus"))) ("Custom" (mode . Custom-mode)) ("ERC" (mode . erc-mode))))))
+ '(ibuffer-saved-filters (quote (("gnus" ((or (mode . message-mode) (mode . mail-mode) (mode . gnus-group-mode) (mode . gnus-summary-mode) (mode . gnus-article-mode)))) ("programming" ((or (mode . emacs-lisp-mode) (mode . cperl-mode) (mode . c-mode) (mode . java-mode) (mode . idl-mode) (mode . lisp-mode)))))))
+ '(ldap-host-parameters-alist (quote (("cerberus.dmz.servabit.it" base "dc=servabit,dc=it"))))
  '(nnimap-nov-is-evil nil t)
- '(safe-local-variable-values (quote ((project-am-localvars-include-path "/usr/include/gtk-2.0" "/usr/lib/gtk-2.0/include" "/usr/include/atk-1.0" "/usr/include/cairo" "/usr/include/pango-1.0" "/usr/include/gio-unix-2.0/" "/usr/include/pixman-1" "/usr/include/freetype2" "/usr/include/directfb" "/usr/include/libpng12" "/usr/include/glib-2.0" "/usr/lib/glib-2.0/include" "/usr/include/libxml2" "/usr/include/dbus-1.0" "/home/fanaj/Progetti/TorrentFinder/src" "/home/fanaj/Progetti/TorrentFinder") (folded-file . t))))
+ '(org-agenda-files (quote ("~/org/IIC.org" "~/org/manutenzione.org")))
+ '(safe-local-variable-values (quote ((folded-file . t))))
  '(vc-diff-switches "-Nup"))
 (custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
+  ;; custom-set-faces was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
  )
 
 
@@ -295,3 +329,5 @@
 
 ;(reload-dot-emacs)
 (reload-my-bindkeys)
+
+(put 'narrow-to-region 'disabled nil)

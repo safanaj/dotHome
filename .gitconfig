@@ -1,6 +1,6 @@
 [user]
 	name = Marco Bardelli
-	email = fanaj@jmini
+	email = marco.bardelli@aderit.it
 [diff "xrcs"]
 	command = diff -I\"\\$Id:\" -uwN
 [giggle]
@@ -19,3 +19,5 @@
 	ci = commit
 	ls = ls-files
 	last = cat-file commit HEAD
+[clean]
+	requireForce = true

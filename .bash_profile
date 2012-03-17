@@ -53,7 +53,8 @@ if [ -d ~/bin ] ; then
 fi
 
 
-EMAIL=bardelli.marco@gmail.com
+#EMAIL=bardelli.marco@gmail.com
+EMAIL=marco.bardelli@aderit.it
 # For packaging in a debian way
 DEBEMAIL=${EMAIL}
 DEBFULLNAME="Marco Bardelli"
@@ -67,7 +68,7 @@ export DEBEMAIL DEBFULLNAME
 
 
 # emacs always lives
-run_emacs &
+#run_emacs &
 
 export LC_ALL LANG LANGUAGE
 export ___BASH_PROFILE_IS_EXPORTED=yes

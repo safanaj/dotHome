@@ -46,7 +46,8 @@ alias eQ='emacs -Q'
 alias ec='emacsclient'
 alias et='emacsclient -t'
 alias RMAIL='emacs -Q -f rmail'
-alias GNUS='emacsclient -e "(gnus)" -a "emacs -f gnus"'
+#alias GNUS='emacsclient -e "(gnus)" -a "emacs -f gnus"'
+#alias AGENDA='emacsclient -e "(org-agenda)" -a "emacs -f org-agenda"'
 alias emacs-kill='emacsclient --eval "(kill-emacs 1)" -a /bin/false'
 
 #### for Django
