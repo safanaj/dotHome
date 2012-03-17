@@ -24,8 +24,9 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;; Load a clean cedet
 (defsubst load-cedet-newtrunk (&optional dir)
+  (interactive)
   (condition-case err
-      (if (file-directory-p dir)
+      (if (and (stringp dir) (file-directory-p dir))
 	  (load
 	   (expand-file-name
 	    "cedet-devel-load.el" dir))
@@ -35,13 +36,14 @@
     (error (message (cadr err)))))
 
 (defsubst load-cedet-trunk (&optional dir)
+  (interactive)
   (and (bound-and-true-p cedet-version)
        (dolist (LP load-path)
 	 (and (string-match "cedet$" LP)
 	      (setq load-path
 		    (remove LP load-path)))))
   (condition-case err
-      (if (file-directory-p dir)
+      (if (and (stringp dir) (file-directory-p dir))
 	  (load
 	   (expand-file-name
 	    "common/cedet.el" dir))
