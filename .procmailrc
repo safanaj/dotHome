@@ -1,0 +1,18 @@
+# -*-conf-*-
+MAILDIR=$HOME/Maildir
+DEFAULT=$MAILDIR/araknos/
+#DEFAULT=/home/mbardelli/.local/share/evolution/mail/local/
+LOGFILE=$MAILDIR/procmail.log
+# Spamassassin!
+# I just pasted the default configuration of spamassassin...
+# :0fw: spamassassin.lock
+# * < 256000
+# | spamassassin
+# :0:
+# * ^X-Spam-Status: Yes
+# spam.spool
+# :0:
+# * (^To|^Cc):.*ding@gnus.org
+# ding.spool
+:0:
+${DEFAULT}

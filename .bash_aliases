@@ -28,7 +28,6 @@ alias psh='ps -H'
 
 alias sudeq='sudo emacs -Q -nw'
 alias sshx='ssh -X'
-alias sshunibo='ssh -i .ssh/IP6_id_dsa bardelli@crown.cs.unibo.it'
 
 alias l1='ls -1'
 

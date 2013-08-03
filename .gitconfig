@@ -1,6 +1,6 @@
 [user]
 	name = Marco Bardelli
-	email = marco.bardelli@aderit.it
+	email = m.bardelli@araknos.it
 [diff "xrcs"]
 	command = diff -I\"\\$Id:\" -uwN
 [giggle]
@@ -19,5 +19,9 @@
 	ci = commit
 	ls = ls-files
 	last = cat-file commit HEAD
+[push]
+	default = simple
+[svn]
+	rmdir = true
 [clean]
 	requireForce = true

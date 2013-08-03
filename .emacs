@@ -3,9 +3,26 @@
 ;; My Name
 (setq user-full-name "Marco Bardelli")
 
+(if (string=
+     (replace-regexp-in-string
+      "\n" ""
+      (with-temp-buffer
+	(insert-file-contents "/run/NetworkManager/location") (buffer-string))) "work")
+    (progn
+      (setq url-proxy-services
+	    '(("http" . "http://m.bardelli:proxyaraknos@10.0.0.37")))
+      (setq user-mail-address "m.bardelli@araknos.it")))
+
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+
 ;; My all is in ~/.emacs.d/emacs.fanaj
 (unless (bound-and-true-p user-emacs-directory)
   (setq user-emacs-directory (expand-file-name "~/.emacs.d/")))
+
+(require 'auto-install nil t)
+(and (boundp 'auto-install-directory)
+     (add-to-list 'load-path auto-install-directory))
+
 (add-to-list 'load-path user-emacs-directory)
 ; make all yes/no prompts y/n instead
 (fset 'yes-or-no-p 'y-or-n-p)
@@ -21,36 +38,13 @@
 (unless (keymapp 'my-prefix-map)
   (define-prefix-command 'my-prefix-map)) ; my-prefix-map
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;; Load a clean cedet
-(defsubst load-cedet-newtrunk (&optional dir)
-  (interactive)
-  (condition-case err
-      (if (and (stringp dir) (file-directory-p dir))
-	  (load
-	   (expand-file-name
-	    "cedet-devel-load.el" dir))
-	(load
-	 (expand-file-name
-	  "~/Progetti/cedet/newtrunk/cedet-devel-load.el")))
-    (error (message (cadr err)))))
+;; do not make backup ~ files
+(setq make-backup-files nil)
 
-(defsubst load-cedet-trunk (&optional dir)
-  (interactive)
-  (and (bound-and-true-p cedet-version)
-       (dolist (LP load-path)
-	 (and (string-match "cedet$" LP)
-	      (setq load-path
-		    (remove LP load-path)))))
-  (condition-case err
-      (if (and (stringp dir) (file-directory-p dir))
-	  (load
-	   (expand-file-name
-	    "common/cedet.el" dir))
-	(load
-	 (expand-file-name
-	  "~/Progetti/cedet/trunk/common/cedet.el")))
-    (error (message (cadr err)))))
+(require 'sr-speedbar nil t)
+(and (featurep 'sr-speedbar)
+     (global-set-key (kbd "<f9>") 'sr-speedbar-toggle))
+
 
 (require 'ido)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -146,7 +140,8 @@
 (setq org-completion-use-ido t)
 (setq ido-everywhere t)
 (setq ido-max-directory-size 100000)
-(ido-mode (quote both))
+;(ido-mode (quote both))
+(ido-mode nil)
 
 ;;;; Refile settings
 ; Exclude DONE state tasks from refile targets
@@ -239,8 +234,8 @@
 (require 'my-bindkeys
 	 (expand-file-name "my-bindkeys.el" user-emacs-directory) t)
 ;; load several elisp by emacswiki
-(require 'my-elisp
-	 (expand-file-name "my-elisp.el" user-emacs-directory) t)
+;; (require 'my-elisp
+;; 	 (expand-file-name "my-elisp.el" user-emacs-directory) t)
 
 (require 'my-mails
 	 (expand-file-name "my-mails.el" user-emacs-directory) t)
@@ -271,7 +266,7 @@
 (when (require 'js-comint nil t)
   ;(setq inferior-js-program-command "/usr/bin/gjs")
   (setq inferior-js-program-command "/usr/bin/smjs")
-  (add-hook 'js2-mode-hook '(lambda () 
+  (add-hook 'js2-mode-hook '(lambda ()
 			      (local-set-key "\C-x\C-e" 'js-send-last-sexp)
 			      (local-set-key "\C-\M-x" 'js-send-last-sexp-and-go)
 			      (local-set-key "\C-cb" 'js-send-buffer)
@@ -301,19 +296,12 @@
   ;; If you edit it by hand, you could mess it up, so be careful.
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
- '(erc-autojoin-channels-alist (quote (("rupe.devsite" "#guerrazzi" "#sstefano" "#test" "#fondazza" "#ottimastanza"))))
  '(erc-autojoin-domain-only t)
  '(erc-modules (quote (autoaway autojoin button capab-identify completion dcc fill irccontrols keep-place list log match menu move-to-prompt netsplit networks noncommands notify page readonly ring services smiley sound stamp spelling track xdcc)))
- '(erc-nick "mbardelli")
- '(erc-port 6667)
- '(erc-server "rupe.devsite.servabit.it")
  '(erc-user-full-name (quote user-full-name))
  '(flyspell-default-dictionary "italiano")
  '(ibuffer-saved-filter-groups (quote (("mine-buffers-groups" ("Help" (mode . help-mode)) ("GNUS" (or (filename . ".newsrc-dribble") (saved . "gnus"))) ("Custom" (mode . Custom-mode)) ("ERC" (mode . erc-mode))))))
  '(ibuffer-saved-filters (quote (("gnus" ((or (mode . message-mode) (mode . mail-mode) (mode . gnus-group-mode) (mode . gnus-summary-mode) (mode . gnus-article-mode)))) ("programming" ((or (mode . emacs-lisp-mode) (mode . cperl-mode) (mode . c-mode) (mode . java-mode) (mode . idl-mode) (mode . lisp-mode)))))))
- '(ldap-host-parameters-alist (quote (("cerberus.dmz.servabit.it" base "dc=servabit,dc=it"))))
- '(nnimap-nov-is-evil nil t)
- '(org-agenda-files (quote ("~/org/IIC.org" "~/org/manutenzione.org")))
  '(safe-local-variable-values (quote ((folded-file . t))))
  '(vc-diff-switches "-Nup"))
 (custom-set-faces

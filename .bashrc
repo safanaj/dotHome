@@ -97,3 +97,11 @@ fi
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
+
+if [ -z "$EDITOR" ]
+then
+    EDITOR=emacsclient
+    ALTERNATE_EDITOR=emacs
+    export EDITOR ALTERNATE_EDITOR
+fi
+

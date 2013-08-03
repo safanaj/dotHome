@@ -5,20 +5,20 @@
 # the default umask is set in /etc/login.defs
 umask 022
 unset LC_ALL LANG LANGUAGE
-[ -z "$DISPLAY" ] && LC_ALL="C" || LC_ALL=it_IT.utf8
-LANG=it_IT.utf8
-LANGUAGE=it_IT.utf8
+[ -z "$DISPLAY" ] && LC_ALL="C" || LC_ALL=en_US.utf8
+LANG=en_US.utf8
+LANGUAGE=en_US.utf8
 
-# GPG Agent
-if test -f $HOME/.gpg-agent-info && \
-    kill -0 `cut -s -d: -f2 $HOME/.gpg-agent-info` 2>/dev/null; then
-    . "$HOME"/.gpg-agent-info
-else
-    eval `gpg-agent --enable-ssh-support --write-env-file --daemon`
-    # eval `gpg-agent --write-env-file --daemon`
-    # eval `ssh-agent`
-fi
-export GPG_AGENT_INFO SSH_AGENT_PID SSH_AUTH_SOCK
+# # GPG Agent
+# if test -f $HOME/.gpg-agent-info && \
+#     kill -0 `cut -s -d: -f2 $HOME/.gpg-agent-info` 2>/dev/null; then
+#     . "$HOME"/.gpg-agent-info
+# else
+#     eval `gpg-agent --enable-ssh-support --write-env-file --daemon`
+#     # eval `gpg-agent --write-env-file --daemon`
+#     # eval `ssh-agent`
+# fi
+# export GPG_AGENT_INFO SSH_AGENT_PID SSH_AUTH_SOCK
 
 
 PATH=/sbin:/usr/sbin:"${PATH}"
@@ -26,15 +26,15 @@ MANPATH=/usr/share/man:/usr/local/share/man:/gnu/share/man
 INFOPATH=/gnu/share/info:/usr/share/info:/usr/local/share/info
 
 ### D-Bus Session
-sys_pid=$(cat /var/run/dbus/pid)
-pids=$(pidof -o $sys_pid dbus-daemon)
-echo sys: $sys_pid ... and $pids
-if test -z "$pids" ; then
-    if test -z $DBUS_SESSION_ADDRESS ; then
-	echo Launch D-Bus ... NO!
-#	eval `dbus-launch --exit-with-session`
-    fi
-fi
+# sys_pid=$(cat /var/run/dbus/pid)
+# pids=$(pidof -o $sys_pid dbus-daemon)
+# echo sys: $sys_pid ... and $pids
+# if test -z "$pids" ; then
+#     if test -z $DBUS_SESSION_ADDRESS ; then
+# 	echo Launch D-Bus ... NO!
+# #	eval `dbus-launch --exit-with-session`
+#     fi
+# fi
 
 
 ### GNUstep Settings Up ...
@@ -51,10 +51,12 @@ fi
 if [ -d ~/bin ] ; then
     PATH=~/bin:"${PATH}"
 fi
+if [ -d ~/.local/share/bin ] ; then
+    PATH=~/.local/share/bin:"${PATH}"
+fi
 
 
-#EMAIL=bardelli.marco@gmail.com
-EMAIL=marco.bardelli@aderit.it
+EMAIL=m.bardelli@araknos.it
 # For packaging in a debian way
 DEBEMAIL=${EMAIL}
 DEBFULLNAME="Marco Bardelli"
