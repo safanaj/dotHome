@@ -3,11 +3,14 @@
 ;; My Name
 (setq user-full-name "Marco Bardelli")
 
-(if (string=
-     (replace-regexp-in-string
-      "\n" ""
-      (with-temp-buffer
-	(insert-file-contents "/run/NetworkManager/location") (buffer-string))) "work")
+
+(if (and
+     (file-exists-p "/run/NetworkManager/location")
+     (string=
+      (replace-regexp-in-string
+       "\n" ""
+       (with-temp-buffer
+	 (insert-file-contents "/run/NetworkManager/location") (buffer-string))) "work"))
     (progn
       (setq url-proxy-services
 	    '(("http" . "http://m.bardelli:proxyaraknos@10.0.0.37")))
@@ -248,6 +251,14 @@
 
 (add-hook 'c-mode-common-hook 'imenu-add-menubar-index)
 
+;;;;;;;;;;;;;;;;;;;;
+;;;; Tiny tools
+(add-to-list 'load-path
+	     "/usr/src/EMACSez/emacs-tiny-tools/lisp/tiny")
+(add-to-list 'load-path
+	     "/usr/src/EMACSez/emacs-tiny-tools/lisp/other")
+(require 'tinydebian nil t)
+(require 'tinygnus nil t)
 
 ;;;;;;;;;;;;;;;;;;;;;
 ;;;; Google Stuff
@@ -305,7 +316,8 @@
  '(ibuffer-saved-filter-groups (quote (("mine-buffers-groups" ("Help" (mode . help-mode)) ("GNUS" (or (filename . ".newsrc-dribble") (saved . "gnus"))) ("Custom" (mode . Custom-mode)) ("ERC" (mode . erc-mode))))))
  '(ibuffer-saved-filters (quote (("gnus" ((or (mode . message-mode) (mode . mail-mode) (mode . gnus-group-mode) (mode . gnus-summary-mode) (mode . gnus-article-mode)))) ("programming" ((or (mode . emacs-lisp-mode) (mode . cperl-mode) (mode . c-mode) (mode . java-mode) (mode . idl-mode) (mode . lisp-mode)))))))
  '(nnimap-nov-is-evil nil)
- '(safe-local-variable-values (quote ((folded-file . t))))
+ '(org-mobile-directory "/home/mbardelli/org")
+ '(safe-local-variable-values (quote ((encoding . utf-8) (project-am-localvars-include-path "/usr/include/gtk-2.0" "/usr/lib/gtk-2.0/include" "/usr/include/atk-1.0" "/usr/include/cairo" "/usr/include/pango-1.0" "/usr/include/gio-unix-2.0/" "/usr/include/pixman-1" "/usr/include/freetype2" "/usr/include/directfb" "/usr/include/libpng12" "/usr/include/glib-2.0" "/usr/lib/glib-2.0/include" "/usr/include/libxml2" "/usr/include/dbus-1.0" "/usr/include/json-glib-1.0" "/home/fanaj/Progetti/TorrentFinder/src" "/home/fanaj/Progetti/TorrentFinder") (folded-file . t))))
  '(vc-diff-switches "-Nup"))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
