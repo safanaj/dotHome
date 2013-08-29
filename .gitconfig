@@ -1,6 +1,6 @@
 [user]
 	name = Marco Bardelli
-	email = m.bardelli@araknos.it
+	email = bardelli.marco@gmail.com
 [diff "xrcs"]
 	command = diff -I\"\\$Id:\" -uwN
 [giggle]

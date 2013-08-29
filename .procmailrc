@@ -1,6 +1,7 @@
 # -*-conf-*-
 MAILDIR=$HOME/Maildir
-DEFAULT=$MAILDIR/araknos/
+DEFAULT=$MAILDIR/
+AK_DEFAULT=$MAILDIR/araknos/
 #DEFAULT=/home/mbardelli/.local/share/evolution/mail/local/
 LOGFILE=$MAILDIR/procmail.log
 # Spamassassin!
@@ -14,5 +15,13 @@ LOGFILE=$MAILDIR/procmail.log
 # :0:
 # * (^To|^Cc):.*ding@gnus.org
 # ding.spool
+:0:
+* ^TO.*m.bardelli@araknos.it
+${AK_DEFAULT}
+
+:0:
+* ^Delivered-To: araknos-it-m.bardelli@araknos.it
+${AK_DEFAULT}
+
 :0:
 ${DEFAULT}
