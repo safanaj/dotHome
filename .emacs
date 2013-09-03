@@ -2,7 +2,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; My Name
 (setq user-full-name "Marco Bardelli")
-
+(setq user-mail-address "bardelli.marco@gmail.com")
 
 (if (and
      (file-exists-p "/run/NetworkManager/location")
