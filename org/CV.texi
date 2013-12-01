@@ -1,0 +1,71 @@
+\input texinfo   @c -*-texinfo-*-
+@c %**start of header
+@setfilename CV
+@set TITLE Curriculum Vitae
+@set AUTHOR Marco Bardelli
+@settitle @value{TITLE}
+@documentlanguage it
+@documentencoding UTF-8
+
+@c %**end of header
+
+@tex
+@end tex
+
+
+@center      @b{Curriculum Vitae di Marco Bardelli}
+@flushright
+                nazionalita@': Italiana
+		domicilio: via Pontida, 4 40132 BO
+		cell. : 328-5753263
+		e-mail: @email{bardelli.marco@@gmail.com}
+
+@end flushright
+@table @t
+@item Anagrafica:
+	Nato a Reggio Emilia il 23/10/1982, Italia@*
+	Residente in via E. Barchi, 4 42100 Reggio Emilia@*
+	Stato civile celibe@*
+
+@item Obiettivi:
+	Apprendere nuovi metodi e linguaggi di programmazione.
+	Acquisire esperienza sulla programmazione ed amministrazione
+	di Sistema (in particolare sistemi unix-like).@*
+	Sviluppare applicazioni e sistemi informatici utili e liberi.
+
+@item Istruzione:
+	@itemize
+	@item 2001 Istituto Tecnico Commerciale "G. Scaruffi" - Reggio Emilia@*
+	Diploma di Perito commerciale, ragioniere, programmatore@*
+	Votazione 85 / 100@*
+	@item 2008 Alma Mater Studiorum - Universit@'a di Bologna@*
+	Laurea in Informatica Classe 26 Scienze e Tecnologie
+	Informatiche@*
+	Votazione 94 / 110@*
+	@end itemize
+
+@item Esperienze lavorative:
+	Stage presso uno studio associato di commercialisti
+	della durata di 40 gg. non retribuito.@*
+	Facchino per tre mesi. Vari lavori a tempo determinato
+	tramite agenzie interinali. Postino per 4 mesi.@*
+	Sviluppo di un sistema di monitoraggio di rete, presso
+	il CED dell'ospedale Maggiore (Azienda USL di Bologna).@*
+	Dal 2008 collaboro continuativamente con il
+	Laboratorio di Tecnologia Medica degli Istituti
+	Ortopedici Rizzoli in qualit@'a di amministratore di
+	sistemi informatici.@*
+
+@item Interessi:
+	Informatica (in particolare software libero e strumenti liberi
+	per un'informazione libera).@*
+	CEDET (Collection of Emacs Development Environment Tools).@*
+	Karate stile Shotokan.
+
+@end table
+
+@bye
+
+@c Local Variables:
+@c compile-command: "texi2dvi --pdf CV.texi"
+@c end:
