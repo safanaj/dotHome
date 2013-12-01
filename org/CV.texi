@@ -35,17 +35,79 @@
 
 @item Istruzione:
 	@itemize
-	@item 2001 Istituto Tecnico Commerciale "G. Scaruffi" - Reggio Emilia@*
-	Diploma di Perito commerciale, ragioniere, programmatore@*
-	Votazione 85 / 100@*
+        @item 2010 Alma Mater Studiorum - Universit@'a di Bologna@*
+	Master of free and open source software technologies@*
+	Il progetto conclusivo del master consisteva nella @*
+	realizzazione di un sistema basato su D-Bus (IPC System) @*
+	per la ricerca di torrent files attraverso vari motori di ricerca.@*
 	@item 2008 Alma Mater Studiorum - Universit@'a di Bologna@*
 	Laurea in Informatica Classe 26 Scienze e Tecnologie
 	Informatiche@*
-	Votazione 94 / 110@*
+	La tesi finale “Privacy nei sistemi basati sul Kernel Linux”.@*
+	Il progetto di tesi consisteva nella modifica del ProcFS @*
+	all' interno del kernel Linux per rendere private @*
+	le attivit@'a (processi) dei vari utenti del sistema.@*
+	@item 2001 Istituto Tecnico Commerciale "G. Scaruffi" - Reggio Emilia@*
+	Diploma di Perito commerciale, ragioniere, programmatore@*
 	@end itemize
 
 @item Esperienze lavorative:
-	Stage presso uno studio associato di commercialisti
+	@itemize
+	@item 2013 - Presente Araknos srl
+	@*
+	@item 2011 - 2013 Aderit srl
+	Parte del team fondatore dell'azienda. Dopo l'esperienza di programmatore software
+	ritorno alla progettazione, amministrazione, monitoraggio e manutenzione dei sistemi
+	informatici. L'attivit@'a core dell'impresa si concentra sull'offerta di soluzioni per
+	un'infrastruttura informatica in cloud computing e sullo sviluppo di siti e portali web.@*
+	Parallelamente allo svolgimento delle mansioni di tecnico informatico, una componente
+	importante della mia posizione è l'attività di ricerca e sviluppo, atta a proporre
+	soluzioni innovative per la gestione efficace delle problematiche che
+	l'infrastruttura informatica di una media impresa comporta.@*
+	In questo ambito, ho progettato e realizzato un sistema per automatizzare
+	il deployment dei servizi d'infrastruttura informatica su macchine virtuali in cloud,
+	quali posta e web server sicuri utilizzando SSL/TLS (crittografia).@*
+	Altre attività svolte:@*
+	- l'implementazione di servizi di posta elettronica con anti-spam e anti-virus
+          utilizzando Postix, Spamassassin e ClamAV;@*
+	- la realizzazione di sistemi groupware (per rendere possibile il lavoro in gruppo), che
+	  includono:@*
+	  1. la webmail utilizzando Roundcube;@*
+	  2. CalDAV Server utilizzando DAViCal;@*
+	  3. rubrica contatti utilizzando OpenLDAP;@*
+	  4. Instant Messaging (xmpp) utilizzando ejabberd.@*
+
+	@item 2010 - 2011 Servabit srl
+	Analista sviluppatore software@*
+	Due sono le aree principali in cui sono stato maggiormente coinvolto:@*
+	a) Sviluppo web;@*
+	b) sistemi ERP (enterprise resource planning).@*
+
+	Con riferimento alla prima, ho coordinato il team informatico nello
+	sviluppo di un portale multisito per una Fondazione bolognese,
+	integrando il framework Django ed il software OpenERP.@*
+	La seconda area vedeva il coinvolgimento nella progettazione e nello
+	sviluppo di sistemi ERP per le knowledge companies. Lavoro svolto in
+	un team formato da economisti, analisti ed informatici.@*
+	Il progetto presupponeva un'approfondita conoscenza del software OpenERP,
+	sviluppato in linguaggio python.@*
+
+	@item 2008 - 2010 Istituti Ortopedici Rizzoli@*
+	Il compito principale riguardava l@' amministrazione dei @*
+	sistemi Windows e GNU/Linux. I miei compiti principali @*
+	includevano:@*
+	- la configurazione router e firewall all'interno di reti
+	  miste (wired/wireless), utilizzando iptables e netfilter;@*
+	- la configurazione e manutenzione dei server di calcolo;@*
+	- l'implementazione di file-sharing su file system crittografato
+	  utilizzando il software LUKS (Linux Unified Key Setup),
+	  Samba (SMB/CIFS), OpenVPN (Virtual Private Network), GnuPG.@*
+	@item 2006 Tirocinio universitario - Bologna@*
+	Realizzazione di un sistema di monitoraggio di @*
+	server remoti (Imola e Bologna) con tecnologie SNMP, @*
+	volti a tenere sotto controllo le prestazioni di CPU, hard disk@*
+	e traffico di rete, con sistema di alerting via e-mail.@*
+	@item 1999 Stage presso uno studio associato di commercialisti@*
 	della durata di 40 gg. non retribuito.@*
 	Facchino per tre mesi. Vari lavori a tempo determinato
 	tramite agenzie interinali. Postino per 4 mesi.@*
@@ -55,12 +117,13 @@
 	Laboratorio di Tecnologia Medica degli Istituti
 	Ortopedici Rizzoli in qualit@'a di amministratore di
 	sistemi informatici.@*
+	@end itemize
 
 @item Interessi:
 	Informatica (in particolare software libero e strumenti liberi
 	per un'informazione libera).@*
 	CEDET (Collection of Emacs Development Environment Tools).@*
-	Karate stile Shotokan.
+	Karate stile Shotokan.@*
 
 @end table
 
