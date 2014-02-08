@@ -35,7 +35,7 @@
 
 @item Istruzione:
 	@itemize
-        @item 2010 Alma Mater Studiorum - Universit@'a di Bologna@*
+	@item 2010 Alma Mater Studiorum - Universit@'a di Bologna@*
 	Master of free and open source software technologies@*
 	Il progetto conclusivo del master consisteva nella @*
 	realizzazione di un sistema basato su D-Bus (IPC System) @*
