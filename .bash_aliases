@@ -37,15 +37,18 @@ alias rt='transmission-remote'
 alias gmountmini='gvfs-mount ssh://jmini.local/'
 alias gumountmini='gvfs-mount -u ssh://jmini.local/'
 
+#### fetchmail
+alias getmail="fetchmail -U"
 
 ####for Emacs
 alias e='emacsclient -t -a "emacs -Q -nw"'
 alias eq='emacs -Q -nw'
+alias vi='emacs -Q -nw'
 alias eQ='emacs -Q'
 alias ec='emacsclient'
 alias et='emacsclient -t'
 alias RMAIL='emacs -Q -f rmail'
-#alias GNUS='emacsclient -e "(gnus)" -a "emacs -f gnus"'
+#alias GNUS='EDITOR= emacsclient -s GNUS -e "(gnus)"'
 #alias AGENDA='emacsclient -e "(org-agenda)" -a "emacs -f org-agenda"'
 alias emacs-kill='emacsclient --eval "(kill-emacs 1)" -a /bin/false'
 
@@ -54,3 +57,10 @@ alias djval='django-admin.py validate --pythonpath=`pwd` --settings=settings'
 alias djrun8800='django-admin.py runserver 0.0.0.0:8800 --pythonpath=`pwd` --settings=settings'
 alias djsh='django-admin.py shell --pythonpath=`pwd` --settings=settings'
 alias djdbsh='django-admin.py dbshell --pythonpath=`pwd` --settings=settings'
+
+#### LDAP
+alias ldaps="ldapsearch -Y EXTERNAL -H ldapi:///"
+alias ldapm="ldapmodify -Y EXTERNAL -H ldapi:///"
+alias ldapmrdn="ldapmodrdn -Y EXTERNAL -H ldapi:///"
+alias ldapa="ldapadd -Y EXTERNAL -H ldapi:///"
+alias ldappwd="ldappasswd -Y EXTERNAL -H ldapi:///"

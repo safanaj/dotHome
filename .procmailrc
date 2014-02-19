@@ -1,9 +1,15 @@
 # -*-conf-*-
-MAILDIR=$HOME/Maildir
-DEFAULT=$MAILDIR/
-AK_DEFAULT=$MAILDIR/araknos/
-#DEFAULT=/home/mbardelli/.local/share/evolution/mail/local/
-LOGFILE=$MAILDIR/procmail.log
+MAILDIRS=$HOME/.Maildirs
+MAILDIR_ARAKNOS=$MAILDIRS/araknos/
+MAILDIR_NUVOLA=$MAILDIRS/nuvo.la/
+MAILDIR_GMAIL_LOCAL=$MAILDIRS/Gmail_local/
+
+DEFAULT=$MAILDIRS/default/
+LOGFILE=$MAILDIRS/procmail.log
+
+# for secondary mail client
+AK_DEFAULT=$HOME/Maildir/araknos/
+
 # Spamassassin!
 # I just pasted the default configuration of spamassassin...
 # :0fw: spamassassin.lock
@@ -15,13 +21,49 @@ LOGFILE=$MAILDIR/procmail.log
 # :0:
 # * (^To|^Cc):.*ding@gnus.org
 # ding.spool
-:0:
-* ^TO.*m.bardelli@araknos.it
-${AK_DEFAULT}
 
 :0:
 * ^Delivered-To: araknos-it-m.bardelli@araknos.it
-${AK_DEFAULT}
+{
+	:0:
+	* ^From: redmine@araknos.it
+	* ^X-Redmine-Site: AraKnos - Issue Tracker
+	{
+		:0 c
+		${MAILDIR_ARAKNOS}/redmine/
+
+		:0:
+		${AK_DEFAULT}
+	}
+
+	:0:
+	* ^Subject: (Re: )*(AKAB2:|ARAKNOS:) Report .*
+	{
+		:0 c
+		${MAILDIR_ARAKNOS}/reports/
+
+		:0:
+		${AK_DEFAULT}
+	}
+
+	:0:
+	* ^TO.*m.bardelli@araknos.it
+	{
+		:0 c
+		${MAILDIR_ARAKNOS}
+
+		:0:
+		${AK_DEFAULT}
+	}
+}
+
+:0:
+* ^TO.*mbj@nuvo.la
+${MAILDIR_NUVOLA}
+
+:0:
+* ^TO.*bardelli.marco@gmail.com
+${MAILDIR_GMAIL_LOCAL}
 
 :0:
 ${DEFAULT}

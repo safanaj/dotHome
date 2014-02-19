@@ -21,7 +21,7 @@
 |                      e-mail: {{{EMAIL}}} |
 
 
-* Anagrafica
+* Anagrafica							   :noexport:
   Nato a Reggio Emilia il 23/10/1982, Italia
 
   Residente in {{{ADDRESS}}}
@@ -39,7 +39,7 @@
 
 * Istruzione:
 
-**  2010 Alma Mater Studiorum - Universit@'a di Bologna
+** 2010 Alma Mater Studiorum - Universit@'a di Bologna
 
     Master of free and open source software technologies
 
@@ -57,14 +57,19 @@
    all' interno del kernel Linux per rendere private
    le attività (processi) dei vari utenti del sistema.
 
-**  2001 Istituto Tecnico Commerciale "G. Scaruffi" - Reggio Emilia
+** 2001 Istituto Tecnico Commerciale "G. Scaruffi" - Reggio Emilia
 
     Diploma di Perito commerciale, ragioniere, programmatore
 
 * Esperienze lavorative:
 
 ** 2013 - Presente Araknos srl
-   @*
+   Responsabile di sviluppo della piattaforma, gestisco e scrivo
+   software in una distribuzione Red-Hat based per coordinare un framework di
+   macchine durante l'esecuzione del SIEM+ distribuito Akab2.
+   Per lo sviluppo dell'applicativo Akab2 mi sto occupando del frontend web basato su
+   Django.
+
 ** 2011 - 2013 Aderit srl
    Parte del team fondatore dell'azienda. Dopo l'esperienza di programmatore software
    ritorno alla progettazione, amministrazione, monitoraggio e manutenzione dei sistemi
