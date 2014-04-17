@@ -105,3 +105,6 @@ then
     export EDITOR ALTERNATE_EDITOR
 fi
 
+if [ -f /etc/profile.d/vte.sh ]; then
+    . /etc/profile.d/vte.sh
+fi
