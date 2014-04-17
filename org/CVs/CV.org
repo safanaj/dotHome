@@ -31,11 +31,14 @@
 
 * Obiettivi
   Apprendere nuovi metodi e linguaggi di programmazione.
-  Acquisire esperienza sulla programmazione ed amministrazione
+  Acquisire sempre più esperienza sulla programmazione ed amministrazione
   di Sistema (in particolare sistemi unix-like).
 
   Sviluppare applicazioni e sistemi informatici utili e liberi,
   in particolare nell'ambito della domotica e del mobile.
+
+  Diventare Debian Developer, per contribuire sempre più alla distribuzione
+  del sistema operativo universale.
 
 * Istruzione:
 
@@ -65,10 +68,11 @@
 
 ** 2013 - Presente Araknos srl
    Responsabile di sviluppo della piattaforma, gestisco e scrivo
-   software in una distribuzione Red-Hat based per coordinare un framework di
+   software per una distribuzione Red-Hat based per coordinare un framework di
    macchine durante l'esecuzione del SIEM+ distribuito Akab2.
    Per lo sviluppo dell'applicativo Akab2 mi sto occupando del frontend web basato su
-   Django.
+   Django, progettando un refactoring per poter consolidare i framework e le tecnologie
+   utilizzate.
 
 ** 2011 - 2013 Aderit srl
    Parte del team fondatore dell'azienda. Dopo l'esperienza di programmatore software
@@ -140,7 +144,8 @@
 
 * Interessi:							   :noexport:
   Informatica (in particolare software libero e strumenti liberi
-  per un'informazione libera).
+  per un'informazione libera, basati su GNU).
+  Contribuire al progetto Debian.
 
   CEDET (Collection of Emacs Development Environment Tools).
 
